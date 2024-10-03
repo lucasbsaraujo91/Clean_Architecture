@@ -1,0 +1,9 @@
+GET http://localhost:8000/findAll
+Host: localhost:8000
+Content-Type: application/json
+
+{
+    "page": "1",
+    "limit": 10,
+    "sort": "desc"
+}

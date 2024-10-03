@@ -1,0 +1,9 @@
+POST http://localhost:8000/order
+Host: localhost:8000
+Content-Type: application/json
+
+{
+    "id": "zzz",
+    "price": 100,
+    "tax": 10
+}

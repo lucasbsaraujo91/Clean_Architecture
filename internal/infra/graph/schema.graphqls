@@ -1,0 +1,31 @@
+# Define o tipo Order, que representa uma ordem no sistema.
+type Order {
+    id: String!       # ID da ordem, não pode ser nulo.
+    Price: Float!     # Preço da ordem, não pode ser nulo.
+    Tax: Float!       # Taxa associada à ordem, não pode ser nulo.
+    FinalPrice: Float! # Preço final da ordem, não pode ser nulo.
+}
+
+# Define o tipo de entrada para criar uma nova ordem.
+input OrderInput {
+    id: String!       # ID da nova ordem, não pode ser nulo.
+    Price: Float!     # Preço da nova ordem, não pode ser nulo.
+    Tax: Float!       # Taxa da nova ordem, não pode ser nulo.
+}
+
+# Define o tipo de entrada para buscar todas as ordens.
+input FindAllOrdersInput {
+    Page: String      # Página a ser retornada (opcional).
+    Limit: Int        # Limite de ordens a serem retornadas (opcional).
+    Sort: String      # Critério de ordenação das ordens (opcional).
+}
+
+# Define as consultas disponíveis no GraphQL.
+type Query {
+    ListOrders(input: FindAllOrdersInput): [Order!]!  # Busca todas as ordens com parâmetros opcionais.
+}
+
+# Define as mutações disponíveis no GraphQL.
+type Mutation {
+    createOrder(input: OrderInput): Order  # Cria uma nova ordem com os dados fornecidos.
+}
